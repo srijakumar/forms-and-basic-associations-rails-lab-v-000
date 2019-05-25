@@ -4,7 +4,7 @@ class Song < ActiveRecord::Base
   belongs_to :genre
   has_many :notes
 
-  def genre_name = (name)
+  def genre_name=(name)
     genre = Genre.find_or_create_by(name: name)
     self.genre = genre
   end
@@ -17,7 +17,7 @@ class Song < ActiveRecord::Base
     self.try(:artist).try(:name)
   end
 
-  def artist_name =(name)
+  def artist_name=(name)
     artist = Artist.find_or_create_by(name: name)
     self.artist = artist
   end
